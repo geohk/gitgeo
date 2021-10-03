@@ -6,7 +6,7 @@ import telegram
 from flask import Flask, request
 from telegram.ext import Dispatcher, MessageHandler, Filters
 
-client = MongoClient('mongodb://fb-g:jtZKATQ7MbXuUKsK@cluster0.sudtx.mongodb.net/')
+#client = MongoClient('mongodb://fb-g:jtZKATQ7MbXuUKsK@cluster0.sudtx.mongodb.net/')
 # Load data from config.ini file
 config = configparser.ConfigParser()
 config.read('config.ini')
@@ -23,10 +23,10 @@ app = Flask(__name__)
 bot = telegram.Bot(token=(config['TELEGRAM']['ACCESS_TOKEN']))
 db=client.hongkong
 
-fbid = db.fb.find({'mobile': 85295298869})
-logger.info(fbid)
-for doc in fbid:
-    print(doc)
+#fbid = db.fb.find({'mobile': 85295298869})
+#logger.info(fbid)
+#for doc in fbid:
+    #print(doc)
 
 
 @app.route('/hook', methods=['POST'])
